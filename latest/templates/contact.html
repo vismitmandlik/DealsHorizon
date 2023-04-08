@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Contact Us - Responsive Page Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact-style.css') }}">
+    </head>
+    <body>
+        <div class="menu-bar">
+            <h1 class="logo">Deals<span>Horizon</span></h1>
+            <ul>
+              
+              <li><a href="{{ url_for('result') }}">Shop <i class="fas fa-caret-down"></i></a>
+      
+                  <div class="dropdown-menu">
+                      <ul>
+                        <li><a href="https://www.amazon.in/s?k=laptops&crid=FW99D4JZX2O7&sprefix=lapto%2Caps%2C352&ref=nb_sb_noss_2">Laptops<i class="fas fa-caret-right"></i></a>
+                          <div class="dropdown-menu-1">
+                            <ul>
+                              <li><a href="#">TouchScreen</a></li>
+                              <li><a href="#">Gaming</a></li>
+                              <li><a href="#">SSD & HDD</a></li>
+                              <li><a href="#">intel</a></li>
+                              <li><a href="#">AMD</a></li>
+                            </ul>
+                          </div> 
+                          </li> 
+                        <li><a href="https://www.amazon.in/s?k=tv&crid=2J4WZQ9BCYHVR&sprefix=tv%2Caps%2C339&ref=nb_sb_noss_1">TVs<i class="fas fa-caret-right"></i></a>
+                          <div class="dropdown-menu-1">
+                              <ul>
+                                <li><a href="#">Smart TVs</a></li>
+                                <li><a href="#">LED</a></li>
+                                <li><a href="#">Curved TV</a></li>
+                              </ul>
+                            </div> 
+                          </li>
+                        <li>
+                          <a href="https://www.amazon.in/s?k=mobile+phone&crid=1H5P9Q7FYOTA6&sprefix=mobile+phone%2Caps%2C259&ref=nb_sb_noss_1">Mobile Phones <i class="fas fa-caret-right"></i></a>
+                          
+                          <div class="dropdown-menu-1">
+                            <ul>
+                              <li><a href="#">Android</a></li>
+                              <li><a href="#">iphones</a></li>
+                              <li><a href="#">Tablets</a></li>
+                              <li><a href="#">ipads</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li><a href="https://www.amazon.in/s?k=ac&crid=W7ACBMFWF8EB&sprefix=a%2Caps%2C385&ref=nb_sb_noss_2">ACs<i class="fas fa-caret-right"></i></a>
+                          <div class="dropdown-menu-1">
+                              <ul>
+                                <li><a href="#">Inverter ACs</a></li>
+                                <li><a href="#">Split ACs</a></li>
+                                <li><a href="#">Window ACs</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                      </ul>
+                    </div>
+              </li>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+            </ul>
+          </div>
+        <section>
+            <div class="container">
+                <div class="contactInfo"> 
+                    <div>
+                        <h2>Contact Info</h2>
+                        <br>
+                        <br>
+                        <br>
+                        <ul class="info">
+                            <li>
+                                <span></span>
+                                <span><h4>Address:</h4>CHRUSAT University<br>
+                                    Anand, Gujarat<br>
+                                    </span>
+                                </span>
+                            </li>
+                            <li>
+                                <span></span>
+                                
+                                <span><a href = "mailto: abc123@gmail.com"><h4>Email:</h4>contact@dealhorizon.com</a></span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span><h4>Mo. No.:</h4> +91 9638 29 87 70</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                    
+                </div>
+                    <div class="contactForm">
+                        <h2>Send a Message</h2>
+                        <div class="formBox">
+                        <div class="inputBox w50">
+                            <input type="text" name="" required>
+                            <span>First Name</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" required>
+                            <span>Last Name</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="email" required>
+                            <span>Email Address</span>
+                        </div>
+                        <div class="inputBox w50">
+                            <input type="text" required>
+                            <span>Mobile Number</span>
+                        </div>
+                        <div class="inputBox w100">
+                            <textarea required></textarea>
+                            <span>Write your message here...</span>
+                        </div>
+                        <div class="inputBox w100">
+                            <input type="submit" value="Send">
+                        </div>
+                    </div>
+                </div>
+                    
+                       
+        </section>
+    </body>
+</html>
