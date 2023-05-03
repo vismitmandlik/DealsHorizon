@@ -1,0 +1,157 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <title>Deals Horizon</title>
+  </head>
+  <body>
+    <div class="menu-bar">
+      <h1 class="logo">Deals<span>Horizon</span></h1>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('home') }}">Shop <i class="fas fa-caret-down"></i></a>
+
+            <div class="dropdown-menu">
+                <ul>
+                  <li><a href="https://www.amazon.in/s?k=laptops&crid=FW99D4JZX2O7&sprefix=lapto%2Caps%2C352&ref=nb_sb_noss_2">Laptops<i class="fas fa-caret-right"></i></a>
+                    <div class="dropdown-menu-1">
+                      <ul>
+                        <li><a href="https://www.amazon.in/s?k=touchscreen+laptop&crid=35BLKIRT8YHV5&sprefix=touchscreen+laptop%2Caps%2C325&ref=nb_sb_noss_1">TouchScreen</a></li>
+                        <li><a href="https://www.amazon.in/s?k=gaming+laptop&sprefix=gaming+%2Caps%2C379&ref=nb_sb_ss_ts-doa-p_2_7">Gaming</a></li>
+                        <li><a href="https://www.amazon.in/s?k=ssd+and+hdd+laptop&sprefix=ssd+and+hdd%2Caps%2C366&ref=nb_sb_ss_ts-doa-p_1_11">SSD & HDD</a></li>
+                        <li><a href="https://www.amazon.in/s?k=intel+laptop&sprefix=intel+la%2Caps%2C312&ref=nb_sb_ss_ts-doa-p_1_8">intel</a></li>
+                        <li><a href="https://www.amazon.in/s?k=amd+laptop&sprefix=amd+%2Caps%2C700&ref=nb_sb_ss_ts-doa-p_5_4">AMD</a></li>
+                      </ul>
+                    </div> 
+                    </li> 
+                  <li><a href="https://www.amazon.in/s?k=tv&crid=2J4WZQ9BCYHVR&sprefix=tv%2Caps%2C339&ref=nb_sb_noss_1">TVs<i class="fas fa-caret-right"></i></a>
+                    <div class="dropdown-menu-1">
+                        <ul>
+                          <li><a href="https://www.amazon.in/s?k=smart+tv&sprefix=smart+%2Caps%2C512&ref=nb_sb_ss_ts-doa-p_4_6">Smart TVs</a></li>
+                          <li><a href="https://www.amazon.in/s?k=led+tv&sprefix=led+%2Caps%2C624&ref=nb_sb_ss_ts-doa-p_2_4">LED</a></li>
+                          <li><a href="https://www.amazon.in/s?k=curved+tv&crid=K0VQYFI7FUJB&sprefix=curved+tv%2Caps%2C433&ref=nb_sb_noss_1">Curved TV</a></li>
+                        </ul>
+                      </div> 
+                    </li>
+                  <li>
+                    <a href="https://www.amazon.in/s?k=mobile+phone&crid=1H5P9Q7FYOTA6&sprefix=mobile+phone%2Caps%2C259&ref=nb_sb_noss_1">Mobile Phones <i class="fas fa-caret-right"></i></a>
+                    
+                    <div class="dropdown-menu-1">
+                      <ul>
+                        <li><a href="https://www.amazon.in/s?k=android+phone&crid=2U5V2B5V46GWI&sprefix=android+phone%2Caps%2C427&ref=nb_sb_noss_1">Android</a></li>
+                        <li><a href="https://www.amazon.in/s?k=iphone&crid=1XBB9FBZE020&sprefix=iphones%2Caps%2C345&ref=nb_sb_noss_2">iphones</a></li>
+                        <li><a href="https://www.amazon.in/s?k=tablets&crid=36F109FG1G5FV&sprefix=tablets%2Caps%2C296&ref=nb_sb_noss_2">Tablets</a></li>
+                        <li><a href="https://www.amazon.in/s?k=ipads&crid=4VUK5ERDEIII&sprefix=ipads%2Caps%2C426&ref=nb_sb_noss_1">ipads</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li><a href="https://www.amazon.in/s?k=ac&crid=W7ACBMFWF8EB&sprefix=a%2Caps%2C385&ref=nb_sb_noss_2">ACs<i class="fas fa-caret-right"></i></a>
+                    <div class="dropdown-menu-1">
+                        <ul>
+                          <li><a href="https://www.amazon.in/s?k=inverter+ac&crid=1YC9YPU3NI2CM&sprefix=inverter+ac%2Caps%2C582&ref=nb_sb_noss_1">Inverter ACs</a></li>
+                          <li><a href="https://www.amazon.in/s?k=split+ac&sprefix=split%2Caps%2C398&ref=nb_sb_ss_ts-doa-p_2_5">Split ACs</a></li>
+                          <li><a href="https://www.amazon.in/s?k=window+ac&sprefix=wind%2Caps%2C445&ref=nb_sb_ss_ts-doa-p_2_4">Window ACs</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+        </li>
+        
+        <li><a href="{{ url_for('contact') }}">Contact us</a></li>
+      </ul>
+    </div>
+
+    <!-- <div class="hero">
+      &nbsp;
+    </div> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="{{ url_for('static', filename='dealhorizon.png') }}" class="center" >
+	<main>
+
+        <div class="search-container">
+            <form action="{{ url_for('search') }}" method="POST">
+              <input type="text" name="query" placeholder="Enter product name...">
+              <button type="submit">Search</button>
+            </form>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+		<!-- featured-items -->
+<section class="featured-items">
+  <br>
+    <h2>Featured Items</h2>
+    <br>
+    <div class="item-container">
+      <div class="item">
+        <img src="{{ url_for('static', filename='Item1.jpg') }}" alt="Item 1">
+        <h3>Beardo De-Tan Body Wash for Men</h3>
+        <p>199.99 Rs</p>
+        <a href="https://www.flipkart.com/beardo-de-tan-body-wash-men-200ml-men-caffeine-coffee-aloe-extracts-face-refreshing-fragrance/p/itm727b7c9760b15?pid=BWSFK97T3NKHZ3NG&lid=LSTBWSFK97T3NKHZ3NGS1XKHG&marketplace=FLIPKART&q=Beardo+De-Tan+Body+Wash+for+Men&store=g9b&srno=s_1_1&otracker=search&otracker1=search&fm=Search&iid=01559c3f-883f-4648-b1dd-297885193266.BWSFK97T3NKHZ3NG.SEARCH&ppt=sp&ppn=sp&ssid=51f26jqtsg0000001680888833363&qH=285b301cf61d3c72" class="button">Buy on Flipkart</a>
+      </div>
+      <div class="item">
+        <img src="{{ url_for('static', filename='Item2.jpg') }}" alt="Item 2">
+        <h3>Marshall Acton II 60 Watt Wireless Bluetooth Speaker</h3>
+        <p>23999.99 Rs</p>
+        <a href="https://www.amazon.in/Marshall-Acton-Bluetooth-Speaker-Black/dp/B07HMTGJ3T/ref=sr_1_3?crid=3I82MR5DGDC3G&keywords=Marshall+Acton+II+60+Watt+Wireless+Bluetooth+Speaker&qid=1680889715&sprefix=marshall+acton+ii+60+watt+wireless+bluetooth+speaker%2Caps%2C177&sr=8-3" class="button">Buy on Amazon</a>
+      </div>
+      <div class="item">
+        <img src="{{ url_for('static', filename='Item3.png') }}" alt="Item 3">
+        <h3>Amazon Basics Polyester Microfiber Duvet Cover Set With Pillow Cover - Single, 2-Piece </h3>
+        <p>449.99 Rs</p>
+        <a href="https://www.amazon.in/AmazonBasics-Microfiber-Duvet-Cover-Set/dp/B0792PD6QG/ref=sr_1_1?crid=3L1VPCAAM3C0P&keywords=Amazon+Basics+Polyester+Microfiber+Duvet+Cover+Set+With+Pillow+Cover+-+Single%2C+2-Piece&qid=1680889793&sprefix=amazon+basics+polyester+microfiber+duvet+cover+set+with+pillow+cover+-+single%2C+2-piece+%2Caps%2C311&sr=8-1" class="button">Buy on Amazon</a>
+      </div>
+      <div class="item">
+        <img src="{{ url_for('static', filename='Img4.png') }}" alt="Item 4">
+        <h3>Redmi Note 12 5G Mystique Blue 6GB RAM 128GB ROM 120Hz Super AMOLED</h3>
+        <p>19,999 Rs</p>
+        <a href="https://www.amazon.in/Redmi-Mystique-AMOLED-Snapdragon%C2%AE-Triple/dp/B0BQ3PYMCZ/ref=sr_1_1?crid=33KFC9GMFG3EW&keywords=Redmi+Note+12+5G+Mystique+Blue+6GB+RAM+128GB+ROM+120Hz+Super+AMOLED&qid=1680889973&sprefix=%2Caps%2C535&sr=8-1" class="button">Buy on Amazon</a>
+      </div>
+      <div class="item">
+        <img src="{{ url_for('static', filename='Img5.png') }}" alt="Item 5">
+        <h3>HP 15s, 11th Gen Intel Core i3 8GB RAM/1TB HDD+256 GB SSD 15.6-inches/39.6 cm FHD Laptop/Windows 11/Dual Speakers</h3>
+        <p>37,490 Rs</p>
+        <a href="https://www.amazon.in/HP-15-6-inches-Graphics-Speakers-15s-du3614TU/dp/B0B6F6PM6C/ref=sr_1_1?crid=1JHMQXJ63MNAB&keywords=HP+15s%2C+11th+Gen+Intel+Core+i3+8GB+RAM%2F1TB+HDD%2B256+GB+SSD+15.6-inches%2F39.6+cm+FHD+Laptop%2FWindows+11%2FDual+Speakers&qid=1680890042&sprefix=hp+15s%2C+11th+gen+intel+core+i3+8gb+ram%2F1tb+hdd%2B256+gb+ssd+15.6-inches%2F39.6+cm+fhd+laptop%2Fwindows+11%2Fdual+speakers%2Caps%2C641&sr=8-1" class="button">Buy on Amazon</a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </section>
+ 
+  
+
+	</main>
+
+    <div class="container">
+
+        <!-- Footer -->
+        
+        <footer class="site-footer">
+            <div class="footer-container">
+              <p>&copy; 2023 Deals Horizon</p>
+            </div>
+          </footer>
+          
+    </div>
+  </body>
+</html>
