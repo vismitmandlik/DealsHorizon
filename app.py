@@ -120,6 +120,147 @@ def fetch_flipkart_product_details(user_product_name):
     )
     flipkart_soup = BeautifulSoup(flipkart_response.text, 'html.parser')
 
+    flipkart_products = flipkart_soup.find_all('div', {'class': '_1AtVbE'})
+    flipkart_product_details = {'name': '', 'price': 0, 'productLink': '', 'imageLink': '', 'confidence': 0}
+
+    for flipkart_product in flipkart_products:
+        product_name_tag = flipkart_product.find('div', {'class': '_4rR01T'})  # Updated class for product name
+        if product_name_tag:
+            product_name = product_name_tag.text.strip()
+            confidence = match_confidence(user_product_name, product_name.lower())
+            if flipkart_product_details['confidence'] < confidence:
+                flipkart_product_details['confidence'] = confidence
+                flipkart_product_details['name'] = product_name
+                product_link_tag = flipkart_product.find('a', {'class': '_1fQZEK'})
+                flipkart_product_details['productLink'] = 'https://www.flipkart.com' + product_link_tag['href'] if product_link_tag else ''
+                image_tag = flipkart_product.find('img', {'class': '_396cs4'})
+                flipkart_product_details['imageLink'] = image_tag['src'] if image_tag else ''
+                price_tag = flipkart_product.find('div', {'class': '_30jeq3 _1_WHN1'})  # Updated class for price
+                if price_tag:
+                    price_text = price_tag.text.strip().replace('₹', '').replace(',', '')
+                    flipkart_product_details['price'] = float(price_text) if price_text else 0
+
+    return flipkart_product_details
+
+    flipkart_url = f'https://www.flipkart.com/search?q={user_product_name}' + \
+        '&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off'
+    flipkart_response = requests.get(
+        url=flipkart_url,
+        headers={
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Cache-Control': 'max-age=0',
+            'Connection': 'keep-alive',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'same-origin',
+            'Sec-Fetch-User': '?1',
+            'Upgrade-Insecure-Requests': '1',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+            'dnt': '1',
+            'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-gpc': '1'
+        }
+    )
+    flipkart_soup = BeautifulSoup(flipkart_response.text, 'html.parser')
+
+    flipkart_products = flipkart_soup.find_all('div', {'class': '_1AtVbE'})
+    flipkart_product_details = {'name': '', 'price': 0, 'productLink': '', 'imageLink': '', 'confidence': 0}
+
+    for flipkart_product in flipkart_products:
+        product_name_tag = flipkart_product.find('div', {'class': '_4rR01T'})  # Adjusted class
+        product_name = product_name_tag.text.strip() if product_name_tag else None
+
+        if product_name:
+            confidence = match_confidence(user_product_name, product_name.lower())
+            if flipkart_product_details['confidence'] < confidence:
+                flipkart_product_details['confidence'] = confidence
+                flipkart_product_details['name'] = product_name
+                product_link_tag = flipkart_product.find('a', {'class': '_1fQZEK'})
+                flipkart_product_details['productLink'] = 'https://www.flipkart.com' + product_link_tag['href'] if product_link_tag else ''
+                image_tag = flipkart_product.find('img', {'class': '_396cs4 _3exPp9'})
+                flipkart_product_details['imageLink'] = image_tag['src'] if image_tag else ''
+                price_tag = flipkart_product.find('div', {'class': '_30jeq3 _1_WHN1'})  # Adjusted class
+                if price_tag:
+                    flipkart_product_details['price'] = float(
+                        price_tag.text.strip().replace('₹', '').replace(',', '')
+                    )
+
+    return flipkart_product_details
+
+    flipkart_url = f'https://www.flipkart.com/search?q={user_product_name}' + \
+        '&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off'
+    flipkart_response = requests.get(
+        url=flipkart_url,
+        headers={
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Cache-Control': 'max-age=0',
+            'Connection': 'keep-alive',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'same-origin',
+            'Sec-Fetch-User': '?1',
+            'Upgrade-Insecure-Requests': '1',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+            'dnt': '1',
+            'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-gpc': '1'
+        }
+    )
+    flipkart_soup = BeautifulSoup(flipkart_response.text, 'html.parser')
+
+    flipkart_products = flipkart_soup.find_all('div', {'class': '_1AtVbE'})
+    flipkart_product_details = {'name': '', 'price': 0, 'productLink': '', 'imageLink': '', 'confidence': 0}
+
+    for flipkart_product in flipkart_products:
+        product_name_tag = flipkart_product.find('a', {'class': 'IRpwTa'})
+        product_name = product_name_tag.text.strip() if product_name_tag else None
+
+        if product_name:
+            confidence = match_confidence(user_product_name, product_name.lower())
+            if flipkart_product_details['confidence'] < confidence:
+                flipkart_product_details['confidence'] = confidence
+                flipkart_product_details['name'] = product_name
+                flipkart_product_details['productLink'] = 'https://www.flipkart.com' + product_name_tag['href']
+                image_tag = flipkart_product.find('img', {'class': '_396cs4 _3exPp9'})
+                flipkart_product_details['imageLink'] = image_tag['src'] if image_tag else ''
+                price_tag = flipkart_product.find('div', {'class': '_30jeq3'})
+                if price_tag:
+                    flipkart_product_details['price'] = float(
+                        price_tag.text.strip().replace('₹', '').replace(',', '')
+                    )
+
+    return flipkart_product_details
+
+    flipkart_url = f'https://www.flipkart.com/search?q={user_product_name}' + \
+        '&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off'
+    flipkart_response = requests.get(
+        url=flipkart_url,
+        headers={
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Cache-Control': 'max-age=0',
+            'Connection': 'keep-alive',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'same-origin',
+            'Sec-Fetch-User': '?1',
+            'Upgrade-Insecure-Requests': '1',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+            'dnt': '1',
+            'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-gpc': '1'
+        }
+    )
+    flipkart_soup = BeautifulSoup(flipkart_response.text, 'html.parser')
+
     flipkart_products = flipkart_soup.find_all('div', {'class': '_2kHMtA'})
     flipkart_product_details = {'name': '', 'price': 0, 'productLink': '', 'imageLink': '', 'confidence': 0}
 
