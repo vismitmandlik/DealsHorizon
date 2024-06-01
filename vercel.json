@@ -5,6 +5,9 @@
       "use": "@vercel/python",
       "config": {
         "runtime": "python3.9"
+      },
+      "hooks": {
+        "prebuild": "pip install Flask requests beautifulsoup4"
       }
     }
   ],
