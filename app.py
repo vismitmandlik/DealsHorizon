@@ -1,4 +1,3 @@
-import asyncio
 import aiohttp
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify, redirect, render_template, request, url_for
