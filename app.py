@@ -69,6 +69,74 @@ def fetch_amazon_product_details(user_product_name):
             {'class': 's-title-instructions-style'}
         )
         if product_title:
+            product_name_tag = product_title.find('span', {'class': 'a-text-normal'})
+            if product_name_tag:
+                product_name = product_name_tag.text.strip()
+                confidence = match_confidence(user_product_name, product_name.lower())
+                if amazon_product_details['confidence'] < confidence:
+                    amazon_product_details['confidence'] = confidence
+                    amazon_product_details['name'] = product_name
+                    amazon_product_details['productLink'] = \
+                        'https://www.amazon.in' + \
+                        amazon_product.find('a')['href']
+                    amazon_product_details['imageLink'] = amazon_product \
+                        .find('img', {'class': 's-image'})['src']
+                    price_tag = amazon_product.find('div', {'class': 's-price-instructions-style'})
+                    if price_tag:
+                        price_span = price_tag.find('span', {'class': 'a-offscreen'})
+                        if price_span:
+                            amazon_product_details['price'] = float(
+                                price_span.text.strip().replace('₹', '').replace(',', '')
+                            )
+
+    return amazon_product_details
+
+    amazon_url = f'https://www.amazon.in/s?k={user_product_name}&ref=nb_sb_noss'
+    amazon_response = requests.get(
+        url=amazon_url,
+        headers={
+            'authority': 'www.amazon.in',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,'
+                    'image/avif,image/webp,image/apng,*/*;q=0.8,'
+                    'application/signed-exchange;v=b3;q=0.7',
+            'accept-language': 'en-US,en;q=0.9',
+            'cache-control': 'max-age=0',
+            'device-memory': '8',
+            'dnt': '1',
+            'downlink': '10',
+            'dpr': '1.5',
+            'ect': '4g',
+            'rtt': '50',
+            'sec-ch-device-memory': '8',
+            'sec-ch-dpr': '1.5',
+            'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", '
+                        '"Chromium";v="111"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-ch-ua-platform-version': '"10.0.0"',
+            'sec-ch-viewport-width': '1152',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'same-origin',
+            'sec-fetch-user': '?1',
+            'sec-gpc': '1',
+            'upgrade-insecure-requests': '1',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                        'AppleWebKit/537.36 (KHTML, like Gecko) '
+                        'Chrome/111.0.0.0 Safari/537.36',
+            'viewport-width': '1152'
+        }
+    )
+    amazon_soup = BeautifulSoup(amazon_response.text, 'html.parser')
+
+    amazon_products = amazon_soup.find_all('div', {'class': 's-result-item'})
+    amazon_product_details = {'name': '', 'price': 0, 'productLink': '', 'imageLink': '', 'confidence': 0}
+    for amazon_product in amazon_products:
+        product_title = amazon_product.find(
+            'div',
+            {'class': 's-title-instructions-style'}
+        )
+        if product_title:
             product_name = product_title \
                 .find('span', {'class': 'a-text-normal'}) \
                 .text \
